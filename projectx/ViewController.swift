@@ -34,12 +34,24 @@ class ViewController: UIViewController {
         }
         midTypin = true
     }
+    
+    //computed values , not all are stored
+    var displayValue:Double {
+        get{
+            return Double(display.text!)!
+        }
+        set{
+            display.text = String(newValue)
+        }
+    }
 
     @IBAction func performOps(sender: UIButton) {
         midTypin = false
         if let ops = sender.currentTitle{
             if ops == "π" {
-                display.text = String(M_PI)
+                displayValue = M_PI
+            }else if ops == "√" {
+                displayValue = sqrt(displayValue)
             }
         }
         
